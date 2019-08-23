@@ -9,7 +9,7 @@
       </div>
       <div class="d-flex justify-content-end align-items-center" style="width: 50%">
         <a href="#" style="padding-right: 90px">
-          <p style="color: black" class="d-flex align-items-center" @click="goToShop">SHOP</p>
+          <!-- <p style="color: black" class="d-flex align-items-center" @click="goToShop">SHOP</p> -->
         </a>
         <!-- <a href="#">
           <p style="color: black">CART {{allCarts.length ? `(${allCarts.length})` : ''}} </p>

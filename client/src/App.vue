@@ -43,7 +43,7 @@ export default {
   color: #42b983;
 }
 body {
-  background-color: #E5E6E7;
+  /* background-color: #E5E6E7; */
 }
 
 a, p, h1, h2, h3, h4, h5, h6, label {
