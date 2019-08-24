@@ -5,7 +5,7 @@
       class="navbar navbar-light my-nav my-nav--fixed white d-flex flex-row justify-content-between border"
     >
       <div class="title d-flex align-self-center cursor-pointer" @click="goToHome">
-        <div style="margin : 0">katrol.</div>
+        <div style="margin : 0">NFCard.</div>
       </div>
       <div class="d-flex justify-content-end align-items-center" style="width: 50%">
         <a href="#" style="padding-right: 90px">
@@ -84,11 +84,11 @@ export default {
   //   },
     
   // },
-  // methods: {
-  //   ...mapActions(['getCart']),
-  //   goToHome() {
-  //     this.$router.push('/');
-  //   },
+  methods: {
+    // ...mapActions(['getCart']),
+    goToHome() {
+      this.$router.push('/');
+    },
   //   goToShop() {
   //     this.$router.push('/products');
   //   },
@@ -111,7 +111,7 @@ export default {
   // created() {
   //   localStorage.token ? this.getCart() : false
   //   console.log(this.allCarts)
-  // }
+  }
 };
 </script>
 

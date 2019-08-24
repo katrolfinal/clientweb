@@ -1,9 +1,9 @@
 <template>
   <div class="login-bar d-flex align-items-center justify-content-end">
-      <!-- v-if="!isLoggedIn"
-      @click.prevent="login" -->
+      <!-- v-if="!isLoggedIn" -->
     <a href="#"
-    ><p style="color: white">LOG IN</p></a>
+      @click.prevent="login"
+    ><p style="color: white">SIGN IN</p></a>
 
       <!-- @click.prevent="goToUser(UserId)" -->
     <!-- <a href="#"
@@ -11,9 +11,9 @@
 
     <div style="margin-left: 15px; margin-right: 15px">•</div>
 
-      <!-- v-if="!isLoggedIn"
-      @click.prevent="register" -->
+      <!-- v-if="!isLoggedIn" -->
     <a href="#"
+      @click.prevent="register"
     ><p style="color: white">CREATE ACCOUNT</p></a>
 
       <!-- v-if="isLoggedIn"
@@ -37,24 +37,24 @@ export default {
   //     name: ''
   //   }
   // },
-  // methods: {
-  //   login() {
-  //     this.$router.push('/login');
-  //   },
-  //   register() {
-  //     this.$router.push('/register');
-  //   },
-  //   logout() {
-  //     // this.$store.dispatch('logout');
-  //     this.$emit('logout');
-  //   },
-  //   goToUser(id) {
-  //     this.$router.push(`/user/${id}`)
-  //   }
-  // },
-  // mounted() {
-  //   this.setName();
-  // }
+  methods: {
+    login() {
+      this.$router.push('/login');
+    },
+    register() {
+      this.$router.push('/register');
+    },
+    logout() {
+      // this.$store.dispatch('logout');
+      this.$emit('logout');
+    },
+    // goToUser(id) {
+    //   this.$router.push(`/user/${id}`)
+    // }
+  },
+  mounted() {
+    // this.setName();
+  }
 };
 </script>
 
