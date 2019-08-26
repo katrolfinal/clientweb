@@ -13,11 +13,22 @@
 <script>
 import LoginBar from '../src/components/LoginBar';
 import Navbar from '../src/components/Navbar';
+import { mapState } from "vuex";
 
 export default {
   components: {
     LoginBar,
     Navbar
+  },
+  created() {
+    if(this.isLogin) {
+      this.$router.push('/dashboard')
+      this.$store.dispatch('getEmployees')
+    }
+    else this.$router.push('/')
+  },
+  computed : {
+    ...mapState(['isLogin'])
   }
 }
 </script>

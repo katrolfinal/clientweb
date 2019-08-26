@@ -54,7 +54,6 @@
 </template>
 
 <script>
-// import myaxios from '@/apis/localhost';
 
 export default {
   data() {
@@ -64,32 +63,23 @@ export default {
         email: '',
         password: ''
       }
-    };
+    }
   },
   methods: {
     register() {
-      // myaxios
-      //   .post('/users/register', this.form)
-      //   .then(({ data }) => {
-      //     localStorage.token = data.token;
-      //     localStorage.username = data.username;
-      //     this.$store.dispatch('setLoggedInUser').then(() => {
-      //       if (!this.$store.getters.error) {
-      //         this.$store.dispatch('fetchMyQuestions').then(() => {
-      //           if (!this.$store.getters.error) {
-      //             setTimeout(() => {
-      //               this.$store.state.isLogin = true;
-      //               this.$alertify.success(`Welcome ${data.username}`);
-      //               this.$router.push('/');
-      //             }, 1000);
-      //           }
-      //         });
-      //       }
-      //     });
-      //   })
-      //   .catch(error => {
-      //     this.$alertify.error(error.response.data);
-      //   });
+        this.$store.dispatch('loginRegister', {
+          type : 'register',
+          data : this.form
+        })
+        .then(({data}) => {
+          console.log(data)
+          this.$toasted.success('Account created !', {duration : 1500})
+          this.$router.push('/login')
+        })
+        .catch(err => {
+          console.log(err.response)
+          this.$toasted.error(err.response.data.errors[0], {duration : 1000, closeOnSwipe : true})
+        })  
     },
     clickLogin() {
       this.$router.push('/login')

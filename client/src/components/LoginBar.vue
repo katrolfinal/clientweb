@@ -1,7 +1,7 @@
 <template>
   <div class="login-bar d-flex align-items-center justify-content-end">
       <!-- v-if="!isLoggedIn" -->
-    <a href="#"
+    <a href="#" v-if="!isLogin"
       @click.prevent="login"
     ><p style="color: white">SIGN IN</p></a>
 
@@ -12,19 +12,18 @@
     <div style="margin-left: 15px; margin-right: 15px">•</div>
 
       <!-- v-if="!isLoggedIn" -->
-    <a href="#"
+    <a href="#" v-if="!isLogin"
       @click.prevent="register"
     ><p style="color: white">CREATE ACCOUNT</p></a>
-
-      <!-- v-if="isLoggedIn"
-      @click.prevent="logout" -->
-    <!-- <a href="#"
-    ><p style="color: white">LOG OUT</p></a> -->
+      
+    <a href="#" v-if="isLogin"
+      @click.prevent="logout"
+    ><p style="color: white">LOG OUT</p></a>
   </div>
 </template>
 
 <script>
-// import { mapState, mapMutations, mapActions, mapGetters } from 'vuex';
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex';
 export default {
   // computed: {
   //   ...mapState(['isLoggedIn', 'user']),
@@ -45,8 +44,10 @@ export default {
       this.$router.push('/register');
     },
     logout() {
-      // this.$store.dispatch('logout');
+      this.$store.commit('logout');
+      this.$router.push('/login')
       this.$emit('logout');
+      this.$toasted.success('logged out', {duration : 500})
     },
     // goToUser(id) {
     //   this.$router.push(`/user/${id}`)
@@ -54,6 +55,9 @@ export default {
   },
   mounted() {
     // this.setName();
+  },
+  computed : {
+    ...mapState(['isLogin'])
   }
 };
 </script>
