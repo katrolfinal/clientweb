@@ -7,10 +7,13 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
+    "vue-loading-overlay": "^3.2.0",
     "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.0.3",
+    "vue-toasted": "^1.1.27",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

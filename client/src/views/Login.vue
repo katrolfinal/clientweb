@@ -66,28 +66,16 @@ export default {
       this.$router.push('/register')
     },
     login() {
-      // myaxios
-      //   .post('/users/login', this.form)
-      //   .then(({ data }) => {
-      //     localStorage.token = data.token;
-      //     localStorage.username = data.username;
-      //     this.$store.dispatch('setLoggedInUser').then(() => {
-      //       if (!this.$store.getters.error) {
-      //         this.$store.dispatch('fetchMyQuestions').then(() => {
-      //           if (!this.$store.getters.error) {
-      //             setTimeout(() => {
-      //               this.$store.state.isLogin = true;
-      //               this.$alertify.success(`Welcome ${data.username}`);
-      //               this.$router.push('/');
-      //             }, 1000);
-      //           }
-      //         });
-      //       }
-      //     });
-      //   })
-      //   .catch(error => {
-      //     this.$alertify.error(error.response.data);
-      //   });
+      this.$store.dispatch('loginRegister', {
+        type : 'login',
+        data : this.form
+      })
+      .then(({data}) => {
+        this.$store.commit('storeLogin', data)
+        this.$router.push('/dashboard')
+        this.$store.dispatch('getEmployees')
+      })
+      this.$toasted.success('Logged in', {duration : 500})
     }
   },
   computed: {
