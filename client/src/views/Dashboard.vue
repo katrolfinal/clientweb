@@ -7,45 +7,76 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div style="position: fixed; width: 250px">
-            <div class="d-flex justify-content-center">
-              <div style="border: 3px solid; border-radius: 500em; padding: 5px; width: 115px">
+          <div style="position: fixed; width: 250px; border: 1px solid #DDE2E6; border-radius: 13px; width: auto; box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.12); background-color: #DFE2C9">
+            <div class="d-flex justify-content-center" style="margin: 70px;
+    margin-bottom: 0;
+    margin-top: 40px;">
+              <div style="border: 3px solid #584F6E; border-radius: 500em; padding: 5px; width: 115px">
                 <img src="https://semantic-ui.com/images/avatar2/small/rachel.png"
                   style="border-radius: 500em; width: 100px"
                 >
               </div>
             </div>
-            <div style="margin-top: 15px">
+            <div style="margin-top: 5px">
               <p style="letter-spacing: 2px; font-size: 18px; text-align: center"><b>RACHEL KONTOL</b></p>
             </div>
-            <div style="margin-bottom: 70px">
+            <div style="margin-bottom: 55px">
               <p style="letter-spacing: 2px; font-size: 14px; text-align: center">BACK-END</p>
             </div>
-            <div class="d-flex justify-content-between">
-              <div style="font-size: 1.5em">
-                <i class="far fa-address-book"></i>
+            <div class="d-flex justify-content-between align-items-center" 
+            style="background-color: #584F6E; 
+                  padding: 7px;
+                  padding-left: 30px;
+                  padding-right: 30px">
+              <div class="d-flex justify-content-center align-items-center"
+              style="font-size: 1.25em; background-color: #fff; border-radius: 500em; height: 35px; width: 35px">
+                <div class="d-flex">
+                  <i class="far fa-address-book" style="color: #584F6E; margin-top: 1px; margin-left: 1px"></i>
+                </div>
               </div>
               <div>
-                <div>+6281-321-216-229</div>
-                <div>rachel@mail.com</div>
+                <p style="color: #fff; text-align: right; font-size: 12px">+6281-321-216-229</p>
+                <p style="color: #fff; text-align: right; font-size: 12px">rachel@mail.com</p>
               </div>
             </div>
-            <div class="d-flex justify-content-between">
-              <div>
-                <div>Jalan Irsan Kontol No. 54</div>
-                <div>Jakarta Selatan</div>
+            <div class="d-flex justify-content-between align-items-center" style="padding: 7px;
+                  padding-left: 30px;
+                  padding-right: 30px">
+              <div class="d-flex justify-content-center align-items-center"
+              style="
+              font-size: 1.25em; 
+              background-color: #584F6E; 
+              border-radius: 500em; 
+              height: 35px; width: 35px">
+                <div class="d-flex">
+                  <i class="fas fa-map-marker-alt" style="color: #fff; margin-top: 1px"></i>
+                </div>
               </div>
-              <div style="font-size: 1.5em">
-                <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <div><p style="text-align: right; font-size: 12px">Irsan Kontol No. 54</p></div>
+                <div><p style="text-align: right; font-size: 12px">Jakarta Selatan</p></div> 
               </div>
             </div>
-            <div class="d-flex justify-content-between">
-              <div style="font-size: 1.4em">
-                <i class="fas fa-mouse-pointer"></i>
+            <div class="d-flex justify-content-between align-items-center" 
+            style="background-color: #584F6E; 
+                  padding: 7px;
+                  padding-left: 30px;
+                  padding-right: 30px;
+                  border-bottom-left-radius: 13px; 
+                  border-bottom-right-radius: 13px;">
+              <div class="d-flex justify-content-center align-items-center"
+              style="
+              font-size: 1.10em; 
+              background-color: #fff; 
+              border-radius: 500em; 
+              height: 35px; width: 35px">
+                <div class="d-flex">
+                  <i class="fas fa-mouse-pointer" style="color: #584F6E; margin-left: 3px"></i>
+                </div>
               </div>
               <div>
-                <div>www.pornhub.com</div>
-                <div>Jakarta Selatan</div>
+                <div><p style="color: #fff; text-align: right; font-size: 12px">www.pornhub.com</p></div>
+                <div><p style="color: #fff; text-align: right; font-size: 12px">www.youporn.com</p></div> 
               </div>
             </div>
           </div>
