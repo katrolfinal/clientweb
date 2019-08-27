@@ -8,15 +8,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <input class="form-control" v-model="employee.name" />
-          <input class="form-control" v-model="employee.position" />
-          <input class="form-control" v-model="employee.phone" />
-          <input class="form-control" v-model="employee.email" />
-        </div>
+        <EmpForm :employee="employee" :isAdd="false" />
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="close">Close</button>
         </div>
       </div>
     </div>
@@ -24,11 +18,35 @@
 </template>
 
 <script>
+import EmpForm from '@/components/EmpForm.vue'
 export default {
- props: ['employee']
+ props: ['employee'],
+ data() {
+   return {
+     
+   }
+ },
+ components : {
+   EmpForm
+ },
+ methods: {
+   close() {
+     this.$emit('closeModal')
+   }
+ },
+ watch : {
+   employee() {
+     console.log(this.employee)
+   }
+ }
 }
 </script>
 
 <style>
+#modalEdit {
+  background-color: #374E87;
+}
+
+
 
 </style>

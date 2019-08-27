@@ -18,10 +18,9 @@
           </div>
         </div>
       </td>
-      <td @click="showCard"><p>{{employee.phone}}</p></td>
+      <td @click="showCard"><p>{{'0'+employee.phone}}</p></td>
       <td @click="showCard"><p>{{employee.email}}</p></td>
-      <td style="text-align: left"><span data-toggle="modal" data-target="#ModalEdit">Edit</span> | <span @click="clickDelete">Delete</span></td>
-      <ModalEdit :employee="employee" :key="employee._id"/>
+      <td style="text-align: left"><span data-toggle="modal" class="edit-btn" data-target="#ModalEdit" @click="$emit('openEdit', employee)">Edit</span> &nbsp; <span @click="clickDelete" class="delete-btn" >Delete</span></td>
   </tr>
 </template>
 
@@ -31,7 +30,9 @@ import ModalEdit from '../components/ModalEdit';
 export default {
   props: ['employee'],
   data() {
-    return {}
+    return {
+      open : false
+    }
   },
   components: {
     ModalEdit
@@ -44,9 +45,33 @@ export default {
     clickEdit() {
       alert('edit')
     },
-
-    clickDelete() {
-      alert('delete')
+    deleteThis() {
+      this.$store.dispatch('deleteEmployee', this.employee._id)
+      .then(() => {
+        this.$toasted.clear()
+        this.$toasted.success('Employee deleted', {duration : 1400})
+        this.$store.dispatch('getEmployees')
+      })
+      .catch(console.log)
+    },
+    clickDelete(id) {
+      this.$toasted.show('Are you sure ?', {
+        duration : null,
+        position : 'top-center',
+        className : 'confirmDlt',
+        action : [{
+          text: 'Delete',
+          class : 'yes-delete',
+          onClick: (e, toastObject) => {
+            this.deleteThis()
+          }
+        }, {
+          text: 'Cancel',
+          onClick: (e, toastObject) => {
+            toastObject.goAway(0)
+          }
+        }]
+      })
     }
   }
 }
@@ -85,4 +110,28 @@ span {
 .table thead th {
   vertical-align: middle
 }
+
+.edit-btn {
+  padding: 0 15px;
+  color: white;
+  background-color: #374E87;
+  border-radius: 3.5px;
+}
+
+.edit-btn:hover {
+  background-color: rgba(121, 135, 203, 0.377);
+}
+
+.delete-btn {
+  background-color: #EF5350;
+  color: white;
+  padding: 0 15px;
+  border-radius: 3.5px;
+}
+
+.delete-btn:hover {
+  background-color: rgba(239, 83, 80, 0.301);
+}
+
+
 </style>

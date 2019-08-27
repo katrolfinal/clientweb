@@ -45,8 +45,8 @@
           </div>
         </div>
         <div>
-          <div><p style="text-align: right; font-size: 12px">Irsan Kontol No. 54</p></div>
-          <div><p style="text-align: right; font-size: 12px">Jakarta Selatan</p></div> 
+          <div><p style="text-align: right; font-size: 12px">{{employee.address}}</p></div>
+          <div><p style="text-align: right; font-size: 12px"></p></div> 
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center" 
@@ -67,8 +67,8 @@
           </div>
         </div>
         <div>
-          <div><p style="color: #fff; text-align: right; font-size: 12px">www.pornhub.com</p></div>
-          <div><p style="color: #fff; text-align: right; font-size: 12px">www.youporn.com</p></div> 
+          <div><p style="color: #fff; text-align: right; font-size: 12px">{{`hacktiv.com`}}</p></div>
+          <div><p style="color: #fff; text-align: right; font-size: 12px">hacktiv.com</p></div> 
         </div>
       </div>
       <p id="close-btn" @click="$emit('closeShowCard')" >close</p>

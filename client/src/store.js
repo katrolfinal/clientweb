@@ -42,7 +42,7 @@ export default new Vuex.Store({
     uploadExcel({state, commit}, payload) {
       const formData = new FormData()
       formData.append('file', payload)
-      return axCp({
+      return axEmp({
         method: 'POST',
         url: `/`,
         headers : {
@@ -62,28 +62,21 @@ export default new Vuex.Store({
         data
       })
     },
-    async deleteEmployee({state, commit}, payload) {
-      const { chosenEmployees } = state
-      const temp = []
-      chosenEmployees.forEach(emp => {
-        temp.push(axEmp({
-          method: 'DELETE',
-          url : '/'+payload,
-          headers : {
-            token : localStorage.getItem('token')
-          }  
-        }))
-      })
-      try {
-        await Promise.all(temp)
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    updateEmployee({state, commit}, {id, data}) {
+    deleteEmployee({state, commit}, payload) {
       return axEmp({
-        method: 'PUT',
-        url: '/'+id,
+        method: 'DELETE',
+        url : '/'+payload,
+        headers : {
+          token : localStorage.getItem('token')
+        }  
+      })
+    },
+    updateCreate({state, commit}, {id, data, type}) {
+      console.log(type)
+      console.log(type == 'POST' ? '/single' : '/'+id)
+      return axEmp({
+        method: type,
+        url: type == 'POST' ? '/single' : '/'+id,
         headers : {
           token: localStorage.getItem('token')
         },
