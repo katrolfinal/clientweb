@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 const axCp = axios.create({
-  baseURL: 'http://localhost:3000/api/company/'
+  baseURL: 'http://35.240.174.62/api/company/'
 })
 
 const axEmp = axios.create({
-  baseURL: 'http://localhost:3000/api/employees/'
+  baseURL: 'http://35.240.174.62/api/employees/'
 })
 
 

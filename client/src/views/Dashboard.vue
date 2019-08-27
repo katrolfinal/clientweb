@@ -18,16 +18,18 @@
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">POSITION</p></th>
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">PHONE</p></th>
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">EMAIL</p></th>
-                    <th scope="col"><p style="color: #989EA1; font-size: 12px">PASSWORD</p></th>
+                    <th scope="col"><p style="color: #989EA1; font-size: 12px">OPTIONS</p></th>
                     <th scope="col">
-                      <div class="d-flex align-items-center justify-content-center" style="background-color: #fff; border-radius: 50%; border: 1px solid #D6D8DA; height: 25px; width: 25px; cursor: pointer;">
+                      <div class="d-flex align-items-center justify-content-center" style="background-color: #fff; border-radius: 50%; border: 1px solid #D6D8DA; height: 25px; width: 25px; cursor: pointer;" data-toggle="modal" data-target="#ModalCreate">
                         <div style="font-size: 12px"><i class="fas fa-plus" style="color: #979EA1"></i></div>
                       </div>
+                      <ModalCreate :newEmployee="newEmployee" />
                     </th>
                 </tr>
             </thead>
             <tbody>
-              <ListEmployee v-for="employee in employees" :key="employee._id" :employee="employee" @showCard="showCard" />
+              <ListEmployee v-for="(employee) in employees" :key="employee._id" :employee="employee" @showCard="showCard" />
+              <!-- <ModalEdit :employee="employee" /> -->
             </tbody>
           </table>
           <Loading :active.sync="isLoadingDashboard" color="red" name="spinner"/>
@@ -42,19 +44,27 @@ import Loading from 'vue-loading-overlay'
 import { mapState, mapMutations } from 'vuex'
 import ListEmployee from '@/components/ListEmployee.vue'
 import 'vue-loading-overlay/dist/vue-loading.css';
-import EmployeeCard from '@/components/EmployeeCard.vue'
+import EmployeeCard from '@/components/EmployeeCard.vue';
+import ModalCreate from '../components/ModalCreate';
 
 export default {
   data() {
     return {
       isLoading : false,
-      onShowCard : ''
+      onShowCard : '',
+      newEmployee: {
+        name: '',
+        position: '',
+        phone: '',
+        email: ''
+      }
     }
   },
   components : {
     ListEmployee,
     Loading,
-    EmployeeCard
+    EmployeeCard,
+    ModalCreate
   },
   computed : {
     ...mapState(['employees', 'isLoadingDashboard'])
