@@ -8,6 +8,8 @@ const axEmp = axios.create({
   baseURL: 'http://35.240.174.62/api/employees/'
 })
 
+// 35.240.174.62
+
 
 export {
   axCp,

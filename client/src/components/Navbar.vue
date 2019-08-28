@@ -4,12 +4,15 @@
     <nav
       class="navbar navbar-light my-nav my-nav--fixed white d-flex flex-row justify-content-between border"
     >
+      <div id="logo-container">
+        <img id="logo" :src="logo" alt="logo">
+      </div>
       <div class="title d-flex align-self-center cursor-pointer" @click="goToHome">
         <div style="margin : 0">NFCard.</div>
       </div>
       <div class="d-flex justify-content-end align-items-center" style="width: 50%">
         <a href="#" style="padding-right: 90px">
-          <!-- <p style="color: black" class="d-flex align-items-center" @click="goToShop">SHOP</p> -->
+          <p style="color: black" class="d-flex align-items-center" @click="toSetting">Setting</p>
         </a>
         <!-- <a href="#">
           <p style="color: black">CART {{allCarts.length ? `(${allCarts.length})` : ''}} </p>
@@ -84,11 +87,19 @@ export default {
   //   },
     
   // },
+  data() {
+    return {
+      logo : require('@/assets/logo.png')
+    }
+  },
   methods: {
     // ...mapActions(['getCart']),
     goToHome() {
       this.$router.push('/');
     },
+    toSetting() {
+      
+    }
   //   goToShop() {
   //     this.$router.push('/products');
   //   },
@@ -154,5 +165,13 @@ select.form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom: 1px solid #000000;
+}
+
+#logo-container {
+ 
+}
+
+#logo {
+  width: 2vw;
 }
 </style>

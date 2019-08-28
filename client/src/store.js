@@ -17,6 +17,7 @@ export default new Vuex.Store({
     storeLogin(state, {token, company}) {
       state.loggedCompany = company
       localStorage.setItem('token', token)
+      localStorage.setItem('company', JSON.stringify(company))
       state.isLogin = true
     },
     storeEmployees(state, payload) {
@@ -27,8 +28,12 @@ export default new Vuex.Store({
     },
     logout(state, payload) {
       state.employees = []
+      state.loggedCompany = {}
       localStorage.clear()
       state.isLogin = false
+    },
+    storeLoggedCompany(state) {
+      state.loggedCompany = JSON.parse(localStorage.getItem('company'))
     }
   },
   actions: {
@@ -72,8 +77,6 @@ export default new Vuex.Store({
       })
     },
     updateCreate({state, commit}, {id, data, type}) {
-      console.log(type)
-      console.log(type == 'POST' ? '/single' : '/'+id)
       return axEmp({
         method: type,
         url: type == 'POST' ? '/single' : '/'+id,
@@ -98,6 +101,16 @@ export default new Vuex.Store({
         commit('storeEmployees', data)
       })
       .catch(err => console.log(err.response.data.errors))
+    },
+    updateCompany({state, commit}, { data }) {
+      return axCp({
+        url: `/`,
+        method: 'PUT',
+        headers: {
+          token: localStorage.getItem('token')
+        },
+        data 
+      })
     }
   }
 })

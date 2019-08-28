@@ -20,6 +20,7 @@
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">POSITION</p></th>
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">PHONE</p></th>
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">EMAIL</p></th>
+                    <th scope="col"><p style="color: #989EA1; font-size: 12px">PASSWORD</p></th>
                     <th scope="col"><p style="color: #989EA1; font-size: 12px">OPTIONS</p></th>
                     <th scope="col">
                       <div class="d-flex align-items-center justify-content-center" style="background-color: #fff; border-radius: 50%; border: 1px solid #D6D8DA; height: 25px; width: 25px; cursor: pointer;" data-toggle="modal" data-target="#ModalCreate">
