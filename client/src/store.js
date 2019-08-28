@@ -17,6 +17,7 @@ export default new Vuex.Store({
     storeLogin(state, {token, company}) {
       state.loggedCompany = company
       localStorage.setItem('token', token)
+      localStorage.setItem('company', JSON.stringify(company))
       state.isLogin = true
     },
     storeEmployees(state, payload) {
@@ -27,8 +28,12 @@ export default new Vuex.Store({
     },
     logout(state, payload) {
       state.employees = []
+      state.loggedCompany = {}
       localStorage.clear()
       state.isLogin = false
+    },
+    storeLoggedCompany(state) {
+      state.loggedCompany = JSON.parse(localStorage.getItem('company'))
     }
   },
   actions: {
@@ -42,7 +47,7 @@ export default new Vuex.Store({
     uploadExcel({state, commit}, payload) {
       const formData = new FormData()
       formData.append('file', payload)
-      return axCp({
+      return axEmp({
         method: 'POST',
         url: `/`,
         headers : {
@@ -62,28 +67,19 @@ export default new Vuex.Store({
         data
       })
     },
-    async deleteEmployee({state, commit}, payload) {
-      const { chosenEmployees } = state
-      const temp = []
-      chosenEmployees.forEach(emp => {
-        temp.push(axEmp({
-          method: 'DELETE',
-          url : '/'+payload,
-          headers : {
-            token : localStorage.getItem('token')
-          }  
-        }))
-      })
-      try {
-        await Promise.all(temp)
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    updateEmployee({state, commit}, {id, data}) {
+    deleteEmployee({state, commit}, payload) {
       return axEmp({
-        method: 'PUT',
-        url: '/'+id,
+        method: 'DELETE',
+        url : '/'+payload,
+        headers : {
+          token : localStorage.getItem('token')
+        }  
+      })
+    },
+    updateCreate({state, commit}, {id, data, type}) {
+      return axEmp({
+        method: type,
+        url: type == 'POST' ? '/single' : '/'+id,
         headers : {
           token: localStorage.getItem('token')
         },
@@ -105,6 +101,16 @@ export default new Vuex.Store({
         commit('storeEmployees', data)
       })
       .catch(err => console.log(err.response.data.errors))
+    },
+    updateCompany({state, commit}, { data }) {
+      return axCp({
+        url: `/`,
+        method: 'PUT',
+        headers: {
+          token: localStorage.getItem('token')
+        },
+        data 
+      })
     }
   }
 })

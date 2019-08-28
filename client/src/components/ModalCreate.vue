@@ -8,15 +8,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <input class="form-control" v-model="newEmployee.name" />
-          <input class="form-control" v-model="newEmployee.position" />
-          <input class="form-control" v-model="newEmployee.phone" />
-          <input class="form-control" v-model="newEmployee.email" />
-        </div>
+        <EmpForm :isAdd="true" />
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>
@@ -24,8 +18,11 @@
 </template>
 
 <script>
+import EmpForm from '@/components/EmpForm.vue'
 export default {
- props: ['newEmployee']
+ components : {
+   EmpForm
+ }
 }
 </script>
 

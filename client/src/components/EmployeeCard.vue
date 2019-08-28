@@ -3,8 +3,8 @@
       <div class="d-flex justify-content-center" style="margin: 70px;
             margin-bottom: 0;
             margin-top: 40px;">
-        <div style="border: 3px solid #584F6E; border-radius: 500em; padding: 5px; width: 115px">
-          <img src="https://semantic-ui.com/images/avatar2/small/rachel.png"
+        <div :style="`border: 3px solid ${loggedCompany.color}; border-radius: 500em; padding: 5px; width: 115px`">
+          <img :src="employee.image"
             style="border-radius: 500em; width: 100px"
           >
         </div>
@@ -16,14 +16,14 @@
         <p style="letter-spacing: 2px; font-size: 14px; text-align: center">{{employee.position}}</p>
       </div>
       <div class="d-flex justify-content-between align-items-center" 
-      style="background-color: #584F6E; 
+      :style="`background-color: ${loggedCompany.color}; 
             padding: 7px;
             padding-left: 30px;
-            padding-right: 30px">
+            padding-right: 30px`">
         <div class="d-flex justify-content-center align-items-center"
         style="font-size: 1.25em; background-color: #fff; border-radius: 500em; height: 35px; width: 35px">
           <div class="d-flex">
-            <i class="far fa-address-book" style="color: #584F6E; margin-top: 1px; margin-left: 1px"></i>
+            <i class="far fa-address-book" :style="`color: ${loggedCompany.color}; margin-top: 1px; margin-left: 1px`"></i>
           </div>
         </div>
         <div>
@@ -35,27 +35,27 @@
             padding-left: 30px;
             padding-right: 30px">
         <div class="d-flex justify-content-center align-items-center"
-        style="
+        :style="`
         font-size: 1.25em; 
-        background-color: #584F6E; 
+        background-color: ${loggedCompany.color}; 
         border-radius: 500em; 
-        height: 35px; width: 35px">
+        height: 35px; width: 35px`">
           <div class="d-flex">
             <i class="fas fa-map-marker-alt" style="color: #fff; margin-top: 1px"></i>
           </div>
         </div>
         <div>
-          <div><p style="text-align: right; font-size: 12px">Irsan Kontol No. 54</p></div>
-          <div><p style="text-align: right; font-size: 12px">Jakarta Selatan</p></div> 
+          <div><p style="text-align: right; font-size: 12px">{{employee.address}}</p></div>
+          <div><p style="text-align: right; font-size: 12px"></p></div> 
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center" 
-      style="background-color: #584F6E; 
+      :style="`background-color: ${loggedCompany.color}; 
             padding: 7px;
             padding-left: 30px;
             padding-right: 30px;
             border-bottom-left-radius: 13px; 
-            border-bottom-right-radius: 13px;">
+            border-bottom-right-radius: 13px;`">
         <div class="d-flex justify-content-center align-items-center"
         style="
         font-size: 1.10em; 
@@ -63,12 +63,12 @@
         border-radius: 500em; 
         height: 35px; width: 35px">
           <div class="d-flex">
-            <i class="fas fa-mouse-pointer" style="color: #584F6E; margin-left: 3px"></i>
+            <i class="fas fa-mouse-pointer" :style="`color: ${loggedCompany.color}; margin-left: 3px`"></i>
           </div>
         </div>
         <div>
-          <div><p style="color: #fff; text-align: right; font-size: 12px">www.pornhub.com</p></div>
-          <div><p style="color: #fff; text-align: right; font-size: 12px">www.youporn.com</p></div> 
+          <div><p style="color: #fff; text-align: right; font-size: 12px">{{`hacktiv.com`}}</p></div>
+          <div><p style="color: #fff; text-align: right; font-size: 12px">hacktiv.com</p></div> 
         </div>
       </div>
       <p id="close-btn" @click="$emit('closeShowCard')" >close</p>
@@ -76,8 +76,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  props : ['employee']
+  props : ['employee'],
+  computed : {
+    ...mapState(['loggedCompany'])
+  },
 }
 </script>
 

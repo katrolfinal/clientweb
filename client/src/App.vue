@@ -24,6 +24,7 @@ export default {
     if(this.isLogin) {
       this.$router.push('/dashboard')
       this.$store.dispatch('getEmployees')
+      this.$store.commit('storeLoggedCompany') 
     }
     else this.$router.push('/')
   },
