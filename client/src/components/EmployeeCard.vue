@@ -1,5 +1,5 @@
 <template>
-    <div style="position: fixed; width: 250px; border: 1px solid #DDE2E6; border-radius: 13px; width: auto; box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.12); background-color: #DFE2C9">
+    <div style="position: fixed; width: 250px; border: 1px solid #DDE2E6; border-radius: 13px; width: 20vw; box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.12); background-color: #DFE2C9">
       <div class="d-flex justify-content-center" style="margin: 70px;
             margin-bottom: 0;
             margin-top: 40px;">

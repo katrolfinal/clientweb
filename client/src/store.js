@@ -97,7 +97,9 @@ export default new Vuex.Store({
       })
       .then(({data}) => {
         state.isLoadingDashboard = false
-        console.log('employee fetched')
+        data.forEach(emp => {
+          emp.phone = '0'+emp.phone
+        })
         commit('storeEmployees', data)
       })
       .catch(err => console.log(err.response.data.errors))

@@ -18,7 +18,7 @@
           </div>
         </div>
       </td>
-      <td @click="showCard"><p>{{'0'+employee.phone}}</p></td>
+      <td @click="showCard"><p>{{employee.phone}}</p></td>
       <td @click="showCard"><p>{{employee.email}}</p></td>
       <td @click="showCard"><p>{{employee.password}}</p></td>
       <td style="text-align: left"><span data-toggle="modal" class="edit-btn" data-target="#ModalEdit" @click="$emit('openEdit', employee)">Edit</span> &nbsp; <span @click="clickDelete" class="delete-btn" >Delete</span></td>
